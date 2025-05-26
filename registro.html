@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta - Portal de Investigación Criminal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-nav">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo Portal de Investigación Criminal" class="logo-image">
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" data-nav="inicio">Inicio</a></li>
+                        <li><a href="investigadores.html" data-nav="investigadores">Investigadores</a></li>
+                        <li><a href="material.html" data-nav="material">Centro de Recursos</a></li>
+                        <li><a href="sugerencias.html" data-nav="sugerencias">Sugerencias</a></li>
+                    </ul>
+                    <div class="nav-indicator"></div>
+                </nav>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Iniciar sesión</a>
+                <a href="registro.html" class="signup-btn active">Crear cuenta</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>Crear Cuenta</h1>
+            <p>Únete a nuestra comunidad de profesionales e interesados en la investigación criminal.</p>
+        </section>
+        
+        <section class="suggestions-form">
+            <form id="registroForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar contraseña</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <span id="passwordError" style="color: red; display: none; font-size: 14px; margin-top: 5px;">Las contraseñas no coinciden</span>
+                </div>
+                
+                <button type="submit" class="submit-btn">Crear Cuenta</button>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <p>¿Ya tienes una cuenta? <a href="login.html" style="color: #5465b2; text-decoration: none;">Inicia sesión aquí</a></p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-info">
+                        <p>323 325 8043</p>
+                        <p>310 478 7881</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-info">
+                        <p>laboratorio.criminalistica.2024@gmail.com</p>
+                        <p>andreshernandez198514@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-info">
+                        <p>Oficina 314 Centro Comercial parque del Hacha Villavicencio Meta</p>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Portal de Investigación Criminal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Recursos - Portal de Investigación Criminal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-nav">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo Portal de Investigación Criminal" class="logo-image">
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" data-nav="inicio">Inicio</a></li>
+                        <li><a href="investigadores.html" data-nav="investigadores">Investigadores</a></li>
+                        <li><a href="material.html" class="active" data-nav="material">Centro de Recursos</a></li>
+                        <li><a href="sugerencias.html" data-nav="sugerencias">Sugerencias</a></li>
+                    </ul>
+                    <div class="nav-indicator"></div>
+                </nav>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Iniciar sesión</a>
+                <a href="registro.html" class="signup-btn">Crear cuenta</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <h1>Centro de Recursos</h1>
+            <p>Accede a nuestros materiales de investigación criminal para ampliar tus conocimientos</p>
+        </section>
+        
+        <!-- Pestañas de niveles -->
+        <div class="level-tabs">
+            <button class="level-tab" data-level="principiante">
+                <i class="fas fa-seedling"></i> Guía para Principiantes
+            </button>
+            <button class="level-tab" data-level="intermedio">
+                <i class="fas fa-user-graduate"></i> Nivel Intermedio
+            </button>
+            <button class="level-tab" data-level="profesional">
+                <i class="fas fa-briefcase"></i> Investigadores Profesionales
+            </button>
+        </div>
+        
+        <!-- Contenido para principiantes -->
+        <div class="level-content" id="principiante-content" style="display: none;">
+            <!-- Sección de Videos para Principiantes -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-video"></i> Videos Introductorios</h2>
+                    <p>Conceptos básicos sobre investigación criminal</p>
+                </div>
+                
+                <div class="resources-grid videos-grid">
+                    <div class="resource-card video-card">
+                        <div class="resource-info">
+                            <h3>Introducción a la Investigación Criminal</h3>
+                            <p class="resource-description">Conceptos básicos y fundamentos para principiantes</p>
+                            <a href="videos/Introducción a la Investigación Criminal.mp4" class="resource-link">Ver video</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card video-card">
+                        <div class="resource-info">
+                            <h3>Metodología Básica</h3>
+                            <p class="resource-description">Primeros pasos en la investigación</p>
+                            <a href="videos/Metodología Básica.mp4" class="resource-link">Ver video</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de Documentos para Principiantes -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-alt"></i> Documentos para Principiantes</h2>
+                    <p>Guías introductorias y manuales básicos</p>
+                </div>
+                
+                <div class="resources-grid documents-grid">
+                    <div class="resource-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Introducción a la Investigación Criminal</h3>
+                            <p class="resource-description">Conceptos fundamentales de la investigación criminal</p>
+                            <a href="pdfs/introduccion a la investigacion criminal.pdf" class="resource-link">Descargar documento</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Metodología Básica</h3>
+                            <p class="resource-description">Fundamentos metodológicos para la investigación criminal</p>
+                            <a href="pdfs/Metodologia Basica.pdf" class="resource-link">Descargar documento</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Contenido para nivel intermedio -->
+        <div class="level-content" id="intermedio-content" style="display: none;">
+            <!-- Sección de Videos para Intermedios -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-video"></i> Videos de Nivel Intermedio</h2>
+                    <p>Técnicas y procedimientos avanzados</p>
+                </div>
+                
+                <div class="resources-grid videos-grid">
+                    <div class="resource-card video-card">
+                        <div class="resource-info">
+                            <h3>Técnicas de Interrogatorio</h3>
+                            <p class="resource-description">Métodos efectivos para obtener información</p>
+                            <a href="videos/Técnicas de Interrogatorio.mp4" class="resource-link">Ver video</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card video-card">
+                        <div class="resource-info">
+                            <h3>Análisis de Evidencia</h3>
+                            <p class="resource-description">Procedimientos para el manejo y análisis de pruebas</p>
+                            <a href="videos/Análisis de Evidencia.mp4" class="resource-link">Ver video</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de Documentos para Intermedios -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-alt"></i> Documentos de Nivel Intermedio</h2>
+                    <p>Manuales técnicos y guías especializadas</p>
+                </div>
+                
+                <div class="resources-grid documents-grid">
+                    <div class="resource-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Manual de Criminalística</h3>
+                            <p class="resource-description">Técnicas y procedimientos de criminalística</p>
+                            <a href="pdfs/Manual de Criminalística.pdf" class="resource-link">Descargar documento</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Contenido para profesionales -->
+        <div class="level-content" id="profesional-content" style="display: none;">
+            <!-- Sección de Videos para Profesionales -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-video"></i> Videos para Profesionales</h2>
+                    <p>Contenido especializado y casos de estudio</p>
+                </div>
+                
+                <div class="resources-grid videos-grid">
+                    <div class="resource-card video-card">
+                        <div class="resource-info">
+                            <h3>Ética en la Investigación</h3>
+                            <p class="resource-description">Dilemas éticos y mejores prácticas profesionales</p>
+                            <a href="videos/Ética en la Investigación.mp4" class="resource-link">Ver video</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de Documentos para Profesionales -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-alt"></i> Documentos para Profesionales</h2>
+                    <p>Investigaciones, estudios de caso y literatura especializada</p>
+                </div>
+                
+                <div class="resources-grid documents-grid">
+                    <div class="resource-card document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="resource-info">
+                            <h3>Criminalística Avanzada</h3>
+                            <p class="resource-description">Técnicas avanzadas de investigación criminal</p>
+                            <a href="pdfs/Criminalistica avanzada.pdf" class="resource-link">Descargar documento</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-info">
+                        <p>323 325 8043</p>
+                        <p>310 478 7881</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-info">
+                        <p>laboratorio.criminalistica.2024@gmail.com</p>
+                        <p>andreshernandez198514@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-info">
+                        <p>Oficina 314 Centro Comercial parque del Hacha Villavicencio Meta</p>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Portal de Investigación Criminal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Script para manejar las pestañas de niveles
+        document.addEventListener('DOMContentLoaded', function() {
+            const levelTabs = document.querySelectorAll('.level-tab');
+            const levelContents = document.querySelectorAll('.level-content');
+            
+            // Ocultar todos los contenidos inicialmente
+            levelContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            levelTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remover clase active de todas las pestañas
+                    levelTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Agregar clase active a la pestaña clickeada
+                    this.classList.add('active');
+                    
+                    // Ocultar todos los contenidos
+                    levelContents.forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    
+                    // Mostrar el contenido correspondiente
+                    const levelToShow = this.getAttribute('data-level');
+                    document.getElementById(`${levelToShow}-content`).style.display = 'block';
+                });
+            });
+        });
+    </script>
+    <script>
+        // Agregar funcionalidad para reproducir videos
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoCards = document.querySelectorAll('.video-card');
+            
+            videoCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const videoLink = this.querySelector('.resource-link').getAttribute('href');
+                    if (videoLink && videoLink !== '#') {
+                        window.location.href = videoLink;
+                    }
+                });
+                
+                // Hacer que el cursor cambie a pointer cuando se pasa sobre la tarjeta
+                card.style.cursor = 'pointer';
+            });
+        });
+    </script>
+</body>
+</html>
