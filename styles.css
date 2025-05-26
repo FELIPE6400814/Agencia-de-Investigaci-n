@@ -488,10 +488,20 @@ footer {
 @media (max-width: 768px) {
     body {
         padding-top: 0;
+        padding-left: 60px;
     }
 
     header {
-        display: none;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 100vh;
+        background-color: #5465b2;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        transition: width 0.3s ease;
     }
 
     header.expanded {
@@ -500,7 +510,7 @@ footer {
 
     .header-container {
         flex-direction: column;
-        padding: 0;
+        padding: 1rem 0;
         height: 100%;
     }
 
@@ -512,6 +522,7 @@ footer {
     .logo-image {
         max-height: 40px;
         margin: 0 auto 1rem;
+        padding: 0.5rem;
     }
 
     .main-nav {
@@ -528,6 +539,11 @@ footer {
         width: 100%;
         text-align: center;
         padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav ul li:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
     .main-nav ul li a {
