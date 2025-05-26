@@ -21,10 +21,21 @@ function setupMobileMenu() {
 
     // Función para alternar el menú
     function toggleMenu() {
+        console.log('Toggle menu clicked'); // Para depuración
         header.classList.toggle('expanded');
         document.body.classList.toggle('menu-expanded');
+        
+        // Verificar si el menú está expandido para mostrar el overlay
+        if (header.classList.contains('expanded')) {
+            overlay.style.display = 'block';
+        } else {
+            overlay.style.display = 'none';
+        }
     }
 
+    // Eliminar eventos anteriores para evitar duplicados
+    menuToggle.removeEventListener('click', toggleMenu);
+    
     // Evento para el botón de menú
     menuToggle.addEventListener('click', toggleMenu);
 
@@ -32,6 +43,7 @@ function setupMobileMenu() {
     overlay.addEventListener('click', function() {
         header.classList.remove('expanded');
         document.body.classList.remove('menu-expanded');
+        overlay.style.display = 'none';
     });
 
     // Cerrar el menú al hacer clic en un enlace de navegación
@@ -41,6 +53,7 @@ function setupMobileMenu() {
             if (window.innerWidth <= 768) {
                 header.classList.remove('expanded');
                 document.body.classList.remove('menu-expanded');
+                overlay.style.display = 'none';
             }
         });
     });
