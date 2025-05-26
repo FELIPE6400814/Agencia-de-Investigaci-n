@@ -490,6 +490,15 @@ footer {
         padding-top: 60px;
     }
 
+    header {
+        transform: none !important;
+        transition: none;
+    }
+
+    header.hide {
+        transform: none !important;
+    }
+
     .header-container {
         flex-direction: column;
         padding: 10px;
