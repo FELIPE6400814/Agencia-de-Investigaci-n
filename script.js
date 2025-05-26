@@ -1,5 +1,54 @@
-// Función para manejar el indicador de navegación
+// Función para manejar el menú móvil
+function setupMobileMenu() {
+    // Crear el botón de menú hamburguesa si no existe
+    if (!document.querySelector('.menu-toggle')) {
+        const menuToggle = document.createElement('button');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.appendChild(menuToggle);
+    }
+
+    // Crear el overlay para cerrar el menú
+    if (!document.querySelector('.menu-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
+    }
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const header = document.querySelector('header');
+    const overlay = document.querySelector('.menu-overlay');
+
+    // Función para alternar el menú
+    function toggleMenu() {
+        header.classList.toggle('expanded');
+        document.body.classList.toggle('menu-expanded');
+    }
+
+    // Evento para el botón de menú
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Cerrar el menú al hacer clic en el overlay
+    overlay.addEventListener('click', function() {
+        header.classList.remove('expanded');
+        document.body.classList.remove('menu-expanded');
+    });
+
+    // Cerrar el menú al hacer clic en un enlace de navegación
+    const navLinks = document.querySelectorAll('.main-nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                header.classList.remove('expanded');
+                document.body.classList.remove('menu-expanded');
+            }
+        });
+    });
+}
+
+// Ejecutar la configuración del menú móvil al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
+    // Código existente del indicador de navegación
     const navItems = document.querySelectorAll('.main-nav ul li a');
     const indicator = document.querySelector('.nav-indicator');
     
@@ -39,6 +88,33 @@ document.addEventListener('DOMContentLoaded', function() {
             indicator.style.display = 'none';
         }
     });
+
+    // Configurar el menú móvil
+    setupMobileMenu();
+    
+    // Verificar estado de inicio de sesión
+    checkLoginStatus();
+});
+
+// Modificar el script de scroll para que no afecte al menú en dispositivos móviles
+window.addEventListener('scroll', function() {
+    // Solo aplicar el efecto de ocultar en pantallas grandes
+    if (window.innerWidth > 768) {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const header = document.querySelector('header');
+        const scrollThreshold = 50;
+        
+        // Determina si el usuario está desplazándose hacia arriba o hacia abajo
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            // Desplazamiento hacia abajo y más allá del umbral
+            header.classList.add('hide');
+        } else {
+            // Desplazamiento hacia arriba o por encima del umbral
+            header.classList.remove('hide');
+        }
+        
+        lastScrollTop = scrollTop;
+    }
 });
     
     // Formulario de sugerencias (solo en la página de sugerencias)
@@ -189,7 +265,48 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ejecutar la verificación de inicio de sesión al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
         // Código existente del indicador de navegación
-        // ...
+        const navItems = document.querySelectorAll('.main-nav ul li a');
+        const indicator = document.querySelector('.nav-indicator');
+        
+        // Función para posicionar el indicador
+        function positionIndicator(element) {
+            if (!element || !indicator) return;
+            
+            const rect = element.getBoundingClientRect();
+            const parentRect = element.parentElement.parentElement.getBoundingClientRect();
+            
+            indicator.style.width = `${rect.width}px`;
+            indicator.style.left = `${rect.left - parentRect.left}px`;
+            indicator.style.display = 'block';
+        }
+        
+        // Posicionar el indicador en la página actual al cargar
+        navItems.forEach(item => {
+            if (item.classList.contains('active')) {
+                positionIndicator(item);
+            }
+        });
+        
+        // Manejar eventos de mouse
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                positionIndicator(this);
+            });
+        });
+        
+        // Cuando el mouse sale del menú, volver al elemento activo
+        const navContainer = document.querySelector('.main-nav ul');
+        navContainer.addEventListener('mouseleave', function() {
+            const activeItem = document.querySelector('.main-nav ul li a.active');
+            if (activeItem) {
+                positionIndicator(activeItem);
+            } else {
+                indicator.style.display = 'none';
+            }
+        });
+
+        // Configurar el menú móvil
+        setupMobileMenu();
         
         // Verificar estado de inicio de sesión
         checkLoginStatus();
