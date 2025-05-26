@@ -1,11 +1,14 @@
 // Función para manejar el menú móvil
 function setupMobileMenu() {
+    console.log('Configurando menú móvil'); // Para depuración
+    
     // Crear el botón de menú hamburguesa si no existe
     if (!document.querySelector('.menu-toggle')) {
         const menuToggle = document.createElement('button');
         menuToggle.className = 'menu-toggle';
         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
         document.body.appendChild(menuToggle);
+        console.log('Botón de menú creado');
     }
 
     // Crear el overlay para cerrar el menú
@@ -13,19 +16,32 @@ function setupMobileMenu() {
         const overlay = document.createElement('div');
         overlay.className = 'menu-overlay';
         document.body.appendChild(overlay);
+        console.log('Overlay creado');
     }
 
     const menuToggle = document.querySelector('.menu-toggle');
     const header = document.querySelector('header');
     const overlay = document.querySelector('.menu-overlay');
 
+    if (!menuToggle || !header || !overlay) {
+        console.error('No se encontraron elementos necesarios para el menú móvil');
+        return;
+    }
+
+    // Eliminar eventos anteriores para evitar duplicados
+    const newMenuToggle = menuToggle.cloneNode(true);
+    menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+    
     // Función para alternar el menú
-    function toggleMenu() {
-        console.log('Toggle menu clicked'); // Para depuración
+    function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Toggle menu clicked');
+        
         header.classList.toggle('expanded');
         document.body.classList.toggle('menu-expanded');
         
-        // Verificar si el menú está expandido para mostrar el overlay
+        // Mostrar/ocultar overlay
         if (header.classList.contains('expanded')) {
             overlay.style.display = 'block';
         } else {
@@ -33,11 +49,9 @@ function setupMobileMenu() {
         }
     }
 
-    // Eliminar eventos anteriores para evitar duplicados
-    menuToggle.removeEventListener('click', toggleMenu);
-    
     // Evento para el botón de menú
-    menuToggle.addEventListener('click', toggleMenu);
+    newMenuToggle.addEventListener('click', toggleMenu);
+    console.log('Evento click añadido al botón de menú');
 
     // Cerrar el menú al hacer clic en el overlay
     overlay.addEventListener('click', function() {
@@ -59,9 +73,10 @@ function setupMobileMenu() {
     });
 }
 
-// Ejecutar la configuración del menú móvil al cargar la página
+// Asegurarnos de que la función se ejecute cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Código existente del indicador de navegación
+    console.log('DOM cargado, configurando menú móvil');
+    setupMobileMenu();
     const navItems = document.querySelectorAll('.main-nav ul li a');
     const indicator = document.querySelector('.nav-indicator');
     
@@ -324,3 +339,9 @@ window.addEventListener('scroll', function() {
         // Verificar estado de inicio de sesión
         checkLoginStatus();
     });
+
+// También ejecutar la función ahora por si la página ya está cargada
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log('Página ya cargada, configurando menú móvil inmediatamente');
+    setupMobileMenu();
+}
