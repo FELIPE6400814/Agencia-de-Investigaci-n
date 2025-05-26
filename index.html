@@ -172,26 +172,10 @@
     <script src="script.js"></script>
     <!-- Se eliminaron las referencias a blur-text.js y particles.js -->
 
+    <!-- Reemplazar el script existente al final del archivo por: -->
     <script>
-        // Script para controlar la visibilidad del encabezado al hacer scroll
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-        const scrollThreshold = 50; // Umbral de desplazamiento para activar el efecto
-
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Determina si el usuario está desplazándose hacia arriba o hacia abajo
-            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
-                // Desplazamiento hacia abajo y más allá del umbral
-                header.classList.add('hide');
-            } else {
-                // Desplazamiento hacia arriba o por encima del umbral
-                header.classList.remove('hide');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
+    // Variable global para el script de scroll
+    let lastScrollTop = 0;
     </script>
 </body>
 </html>
