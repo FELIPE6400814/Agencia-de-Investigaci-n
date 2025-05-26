@@ -487,37 +487,30 @@ footer {
 /* Diseño responsivo */
 @media (max-width: 768px) {
     body {
-        padding-top: 50px;
+        padding-top: 0;
+        padding-left: 60px;
     }
 
     header {
         position: fixed;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 100vh;
+        padding: 1rem 0;
+        overflow-y: auto;
         transform: none !important;
-        transition: none;
-        padding: 0.4rem 0;
+        transition: width 0.3s ease;
     }
 
-    header.hide {
-        transform: none !important;
+    header.expanded {
+        width: 250px;
     }
 
     .header-container {
         flex-direction: column;
-        padding: 5px;
-    }
-
-    .logo-image {
-        max-height: 40px;
-    }
-
-    .main-nav ul li a {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.8rem;
-    }
-
-    .login-btn, .signup-btn {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.9rem;
+        padding: 0;
+        height: 100%;
     }
 
     .logo-nav {
@@ -525,20 +518,43 @@ footer {
         width: 100%;
     }
 
+    .logo-image {
+        max-height: 40px;
+        margin: 0 auto 1rem;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
     .main-nav ul {
         flex-direction: column;
         width: 100%;
-        text-align: center;
+        padding: 0;
     }
 
     .main-nav ul li {
-        padding: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 0;
+    }
+
+    .main-nav ul li a {
+        padding: 0.5rem;
+        white-space: nowrap;
     }
 
     .auth-buttons {
-        margin-top: 1rem;
-        width: 100%;
-        justify-content: center;
+        flex-direction: column;
+        margin-top: auto;
+        padding: 1rem 0;
+        gap: 0.5rem;
+    }
+
+    .login-btn, .signup-btn {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .hero {
