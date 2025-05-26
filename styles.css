@@ -486,39 +486,71 @@ footer {
 
 /* Diseño responsivo */
 @media (max-width: 768px) {
-    /* Clase para ocultar el encabezado cuando se desplaza hacia abajo rápidamente */
-header.hide {
-    transform: translateY(-100%);
-}
-
-.header-container {
-        flex-direction: column;
+    body {
+        padding-top: 60px;
     }
-    
-    .logo-nav {
-        margin-bottom: 1rem;
+
+    .header-container {
         flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
         text-align: center;
     }
-    
-    .logo {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    .main-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
+
     .main-nav ul li {
-        margin: 0.5rem;
+        padding: 0.5rem 0;
     }
-    
+
     .auth-buttons {
         margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
     }
-    
+
+    .hero {
+        padding: 1.5rem 0;
+    }
+
+    .hero h1.wave-text span {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Ajustes para la sección de misión y visión */
+    .mission-vision-row {
+        flex-direction: column;
+    }
+
+    .mission-box, .vision-box {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    /* Ajustes para las tarjetas de razones */
+    .reasons-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .reason-card {
+        padding: 1rem;
+    }
+
     .investigators-grid,
     .materials-categories,
     .materials-grid {
@@ -913,9 +945,14 @@ header.hide {
     }
 }
 
-@media (max-width: 576px) {
-    .reasons-container {
-        grid-template-columns: 1fr;
+@media (max-width: 480px) {
+    .hero h1.wave-text span {
+        font-size: 1.5rem;
+    }
+
+    .login-btn, .signup-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
